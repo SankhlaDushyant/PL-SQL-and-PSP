@@ -1,0 +1,35 @@
+<%@ page language="PL/SQL" %>
+<%@ plsql procedure="homework4db" %>
+<%!
+ /* Cursor Declarations */
+ CURSOR ds643 IS
+ SELECT name,email,comments,creation_date
+ FROM guestbook;
+%>
+<HTML>
+<BODY>
+<B>Guestbook Comments:</B>
+ <%
+ FOR counter IN ds643 LOOP
+ %>
+ <HR>
+ <TABLE>
+ <TR><TD>
+ <B>Name:</B>
+ <%= counter.name %>
+ </TD></TR>
+ <TR><TD>
+ <B>E-mail:</B>
+ <%= counter.email %>
+ </TD></TR>
+ <TR><TD>
+ <B>Comment:</B>
+ <%= counter.comments %>
+ </TD></TR>
+ </TABLE>
+ <%
+ END LOOP;
+ %>
+<HR>
+</BODY>
+</HTML>

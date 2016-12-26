@@ -1,0 +1,21 @@
+<%@ page language="PL/SQL" %>
+<%@ plsql procedure="p6" %>
+<%@ plsql parameter="ds643_name" type="VARCHAR2" %>
+<%@ plsql parameter="ds643_email" type="VARCHAR2" %>
+<%@ plsql parameter="ds643_comments" type="VARCHAR2" %>
+<%
+ /* Insert the values into the database table */
+ INSERT INTO guestbook (name,email,comments,creation_date)
+ VALUES (ds643_name,ds643_email,ds643_comments,SYSDATE);
+
+ /* Commit the Transaction */
+ COMMIT;
+
+%>
+DATA INSERTED
+<br>
+Verify By Calling homeword4db in the URL window.
+<br>
+Or just click below:
+<p>
+<a href="homework4db">homework4db</a>
